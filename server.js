@@ -1,4 +1,4 @@
-const path = require('path');
+const PATH = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -11,7 +11,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// app.get('/', (req, res,) => res.send('hello world'))
+app.get('/', (req, res,) => res.send('hello world'))
 
 // Set up Handlebars.js engine with custom helpers
 // const hbs = exphbs.create({ helpers });
@@ -34,7 +34,7 @@ app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(routes);
 // app.use(public)

@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const { Project } = require('../../models');
 
+
+const { User, Post, Comment} = require('../../models');
+const withAuth = require('../../utils/auth');
+
+//Posting a comment 
 router.post('/', async (req, res) => {
   try {
     const newProject = await Project.create({
@@ -14,6 +19,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+//Deleting a comment 
 router.delete('/:id', async (req, res) => {
   try {
     const projectData = await Project.destroy({
@@ -33,6 +39,13 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get()
+// Getting a comment 
+router.get("/", (req, res) => {
+  Comment.findAll().then((dbCommentData) => res.json(dbCommentData))
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err)
+  });
+});
 
 module.exports = router;

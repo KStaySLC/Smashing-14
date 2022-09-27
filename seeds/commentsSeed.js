@@ -2,8 +2,8 @@ const { Comment} = require("../models");
 
 const commentSeed =  [
     {
-        id: '',
-        user_id: '',
+        id: '1',
+        user_id: 'HMFIC',
         date_created:'',
         description: '', 
     },
